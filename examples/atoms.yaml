@@ -1,0 +1,82 @@
+# 中老年电商口播原子 / generic mid-age and older commerce demo.
+# 15s oral script = 前3s钩子 + 中10s卖点 + 尾2s CTA.
+# 近重复钩子、近重复卖点、过长句、过短句是故意留下的，demo 的门禁应当 FAIL.
+# Near-duplicate hooks, near-duplicate pitches, and one long and one short
+# line are intentional. `demo` should finish with gate FAIL.
+#
+# 展开顺序（钩子变化最快）: tones, audiences, ctas, selling_points, scenes, hooks.
+# limit 60 覆盖全部卖点、场景和钩子，以及文件里的第一个 CTA、人群、语气。
+# 完整笛卡尔积是 2*2*2*5*3*4 = 480。
+
+product: 保暖护膝
+limit: 60
+
+gates:
+  min_chars: 52
+  max_chars: 96
+  shingle_n: 2
+  simhash_hamming_max: 8
+  jaccard_max: 0.90
+  pair_rule: both
+  hook_hamming_max: 16
+  hook_jaccard_max: 0.45
+  max_hook_reuse: 24
+  pair_list_limit: 20
+
+hooks:
+  - id: h01
+    text: "天一冷，膝盖就跟针扎一样？"
+  - id: h02
+    text: "天一冷膝盖就跟针扎一样？"
+  - id: h03
+    text: "上下楼梯要扶墙，你是不是也这样？"
+  - id: h04
+    text: "儿女不在身边，膝盖疼了自己忍？"
+
+selling_points:
+  - id: "05"
+    label: 卖点05
+    text: "三层锁温，膝盖前后左右都包住，坐着一上午也不僵。"
+  - id: "09"
+    label: 卖点09
+    text: "关节处留了活动褶，走路下蹲都不勒。"
+  - id: "06"
+    label: 卖点06
+    text: "三层锁温，膝盖前后左右都包住，坐着一上午也不觉得僵。"
+  - id: "07"
+    label: 卖点07
+    text: "这款护膝把膝盖前后左右都包进三层锁温布料里，内侧有防滑点，魔术贴可以自己调节松紧，早上出门、中午休息、晚上散步都不用摘，弯腿时布料跟着走不堆成一团，洗过以后也还贴合，送给父母或者自己换季备用都可以先看尺码表。"
+  - id: "08"
+    label: 卖点08
+    text: "轻。"
+
+audiences:
+  - id: a1
+    text: "中老年朋友"
+  - id: a2
+    text: "久坐的家人"
+
+tones:
+  - id: t1
+    label: 平实
+    text: "说句实在的，"
+  - id: t2
+    label: 轻声
+    text: "语气轻一点，"
+
+ctas:
+  - id: c1
+    text: "点下方，先看尺码再下单。"
+  - id: c2
+    text: "现在领券，给家里人备一条。"
+
+scenes:
+  - id: office
+    label: 办公室
+    text: 办公室久坐
+  - id: living
+    label: 客厅
+    text: 客厅看电视
+  - id: park
+    label: 公园
+    text: 公园散步

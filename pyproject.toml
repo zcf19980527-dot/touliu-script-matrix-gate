@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "touliu-script-matrix"
+version = "0.1.0"
+description = "Expand oral-script atoms into a 15s matrix and gate length, hooks, and near-duplicate copy. Local only."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "zcf19980527-dot"}]
+keywords = ["cli", "scripts", "similarity", "simhash"]
+classifiers = [
+    "Environment :: Console",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = ["PyYAML>=6"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.urls]
+Homepage = "https://github.com/zcf19980527-dot/touliu-script-matrix-gate"
+Repository = "https://github.com/zcf19980527-dot/touliu-script-matrix-gate"
+
+[project.scripts]
+touliu-script-matrix = "touliu_script_matrix.cli:console_main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
